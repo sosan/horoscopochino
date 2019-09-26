@@ -35,27 +35,27 @@ HOROSCOPO = {
     12: "Cerdo"
 
 }
-#
-# COMPATIBLIDAD = {
-#     1: ("Dragon", "Mono"), # dragon rata mono
-#     2: ("Serpiente", "Gallo"), # Bueuy serpiente gallo
-#     3: ("",""),
-#     4: ("",""),
-#     5: ("Rata", "Mono"),
-#     6: ("Buey", "Gallo")
-#     9: ("Rata", "Dragon"),
-#     10: ("Buey", "Serpiente"),
-#     11:
-#     12:
-#
-#
-#
-# }
+
+COMPATIBLIDAD = {
+    1: ("Dragon", "Mono"),
+    2: ("Serpiente", "Gallo"),
+    3: ("Caballo", "Perro"),
+    4: ("Cerdo", "Cabra"),
+    5: ("Rata", "Mono"),
+    6: ("Buey", "Gallo"),
+    7: ("Tigre", "Perro"),
+    8: ("Conejo", "Cerdo"),
+    9: ("Rata", "Dragon"),
+    10: ("Buey", "Serpiente"),
+    11: ("Tigre", "Caballo"),
+    12: ("Conejo", "Cabra")
+
+}
 
 
 class FormularioHoroscopo(FlaskForm):
     campoAnyo = StringField("Año Nacimiento", validators=[DataRequired(),
-                                                            Length(4, 5)
+                                                          Length(4, 5)
                                                           ])
     enviar = SubmitField("Enviar")
 
@@ -64,7 +64,6 @@ class FormularioHoroscopo(FlaskForm):
 # RUTA HOME
 @app.route("/", methods=["GET", "POST"])
 def home():
-    
     formulario = FormularioHoroscopo()
     context = {
         "formulario": formulario
@@ -74,7 +73,7 @@ def home():
 
 
 # devolver datos del formualrio
-@app.route("/rata", methods=["GET", "POST"]) # SI RECARGA LA PAGINA PODRIA DAR FALLO?
+@app.route("/rata", methods=["GET", "POST"])  # SI RECARGA LA PAGINA PODRIA DAR FALLO?
 def rata():
     if request.method == "POST":
 
@@ -84,7 +83,18 @@ def rata():
             anyoUsuario = int(datosFormulario["campoAnyo"])
             dato = calcularHoroscopoChino(anyoUsuario)
             # return "{0} / {1}" .format(dato[0], dato[1])
-            return render_template("rata.html", error=dato[0], data=dato[1]) # dato0 es bool y dato1 es str
+            nombreBicho = HOROSCOPO[dato[1]]
+
+            context = {
+                "error": dato[0],  # BOOL
+                "data": dato[1],  # STR
+                "nombreBicho": nombreBicho,  # STR
+                "compatbilidad": COMPATIBLIDAD  # DIC
+
+            }
+
+            return render_template("rata.html", error=dato[0], data=dato[1], nombreBicho=nombreBicho,
+                                   compatibilidad=COMPATIBLIDAD)  # dato0 es bool y dato1 es str
         except ValueError:
             return render_template("rata.html", error=True, data="Valor no posible convertir")
 

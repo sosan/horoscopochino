@@ -1,12 +1,18 @@
 {% extends "base.html" %}
-{% block content %}
+
+{% block main %}
 {{ super() }}
 
     {% if error == False %}
-        <p>Eres un <img src="{{ url_for("static", filename="images/{0}.png".format(data) ) }}"></p>
+
+        <div class="bicho">
+            <img src="{{ url_for("static", filename="images/{0}.png".format(data) ) }}"><br>
+            {{ nombreBicho }}
+
+        </div>
+
     {% endif %}
     {% if error == True %}
-      
         <p>Error: {{ data }} </p>
     {% endif %}
 {% endblock %}
