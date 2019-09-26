@@ -64,6 +64,7 @@ class FormularioHoroscopo(FlaskForm):
 # RUTA HOME
 @app.route("/", methods=["GET", "POST"])
 def home():
+    
     formulario = FormularioHoroscopo()
     context = {
         "formulario": formulario

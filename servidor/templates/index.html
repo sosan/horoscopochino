@@ -19,9 +19,10 @@
 {% block footer %}
 {{ super() }}
 
-    <form action="/index" method="post">
+    <form action="/rata" method="post">
     <label for="">年纪 Año de nacimiento</label><br>
-    <input name="campoAnyo" type="text"/>
+    <input name="campoAnyo" type="text" size="10" placeholder="Escribe aqui"/>
+    <input type="submit" name="enviar"/>
 
     </form>
 <!--
