@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}HOROSCOPO CHINO{% endblock %}</title>
+
+<!-- css -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/main.css") }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+{% block content%}
+
+    <!-- header -->
+    <header>
+        <div class="titulo">中 国 的 星 形 镜</div>
+        {% block header %}{% endblock %}
+    </header>
+
+    <!-- main -->
+    <main>
+        <div class="logo">
+            <div class="logo__titulo">天空</div>
+            <div class="logo__subtitulo">Horoscopo Chino</div>
+        </div>
+        {% block main %}{% endblock %}
+    </main>
+
+    <!-- footer -->
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+
+{% endblock %}
+</body>
+</html>

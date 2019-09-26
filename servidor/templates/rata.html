@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
+
+    {% if error == False %}
+        <p>Eres un <img src="{{ url_for("static", filename="images/{0}.png".format(data) ) }}"></p>
+    {% endif %}
+    {% if error == True %}
+      
+        <p>Error: {{ data }} </p>
+    {% endif %}
+{% endblock %}

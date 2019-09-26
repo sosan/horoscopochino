@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="bicho">
+    <img src="{{ url_for("static", filename="images/no.png") }} ">
+</div>
+
+    <div class="compatibilidad">
+    <p>COMPATIBILIDAD</p>
+    <img src="{{ url_for("static", filename="images/no.png") }} "><br>
+    <img src="{{ url_for("static", filename="images/no.png") }} ">
+
+    </div>
+
+{% endblock %}
+
+
+<!-- bloque footer -->
+{% block footer %}
+{{ super() }}
+
+    <form action="/index" method="post">
+    <label for="">年纪 Año de nacimiento</label><br>
+    <input name="campoAnyo" type="text"/>
+
+    </form>
+<!--
+<div class="formulario">
+ <form action="/rata" method="post">
+     {{ datos["formulario"]["campoAnyo"](class="form-control", placeholder="Año Nacimiento")}}
+     {{ datos["formulario"]["enviar"](class="btn btn-default btn-register")}}
+
+</form>
+
+</div>
+-->
+
+{% endblock %}

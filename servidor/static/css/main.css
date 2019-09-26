@@ -1,0 +1,86 @@
+body {
+
+    background: url("../images/fondo.jpg");
+    width: 1366px;
+    height: 768px;
+  display: grid;
+  grid-template-rows: 1fr 70% 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: ". titulo .";
+  grid-area: header;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.titulo{
+    grid-area: titulo;
+    display: grid;
+    font-size: 2rem;
+    font-
+
+
+}
+
+main {
+  grid-area: main;
+    display: grid;
+   grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "bicho logo compatibilidad";
+    justify-items: center;
+    align-items: center;
+
+}
+
+.logo{
+    grid-area: logo;
+
+}
+
+html{
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
+.logo__titulo{
+    font-size: 60px;
+}
+
+.bicho{
+    grid-area: bicho;
+}
+
+.compatibilidad {
+    grid-area: compatibilidad;
+}
+
+
+footer {
+  grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". formulario .";
+    justify-items: center;
+    align-items: flex-start;
+}
+
+.formulario{
+    grid-area: formulario;
+
+}
+
+form{
+    grid-area: formulario;
+
+}
+
