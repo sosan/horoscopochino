@@ -2,17 +2,80 @@
 
 {% block main %}
 {{ super() }}
+{#
+{
+'errorBool': False, 'errorStr': '',
+'keyDict': 8,
+ 'dataHoroscopo': ('Cabra', ('Conejo', 4), ('Cerdo', 12))
+ }
 
-    {% if error == False %}
+#}
+    {% if datosHtml["errorBool"] == False %}
 
         <div class="bicho">
-            <img src="{{ url_for("static", filename="images/{0}.png".format(data) ) }}"><br>
-            <p style="margin: auto">{{ nombreBicho }}</p>
+            <img src="{{ url_for("static", filename="images/{0}.png".format(datosHtml["keyDict"]) ) }}">
+            <p>{{  datosHtml["dataHoroscopo"][0] }}</p>
 
         </div>
 
+        <div class="compatibilidad">
+            {% set tuplaDatos = datosHtml["dataHoroscopo"] %}
+            <img src="{{ url_for("static", filename="images/{0}.png".format(tuplaDatos[1][1]) ) }}" width="150px">
+            <p>{{  tuplaDatos[1][0] }}</p>
+            <br>
+            <img src="{{ url_for("static", filename="images/{0}.png".format(tuplaDatos[2][1]) ) }}" width="150px">
+            <p>{{  tuplaDatos[2][0] }}</p>
+            <br>
+            <p>Compatibilidad</p>
+
+        </div>
+
+
+
+
     {% endif %}
-    {% if error == True %}
-        <p>Error: {{ data }} </p>
+
+    {% if datosHtml["errorBool"] == True %}
+        <p>Error: {{ datosHtml["errorStr"] }} </p>
     {% endif %}
+{% endblock %}
+
+
+{% block footer %}
+     {% if datosHtml["keyDict"] == 1 %}
+            {% include "rata2.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 2 %}
+            {% include "buey.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 3 %}
+            {% include "tigre.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 4 %}
+            {% include "conejo.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 5 %}
+            {% include "dragon.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 6 %}
+            {% include "serpiente.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 7 %}
+            {% include "caballo.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 8 %}
+            {% include "cabra.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 9 %}
+            {% include "mono.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 10 %}
+            {% include "gallo.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 11 %}
+            {% include "perro.html" %}
+        {% endif %}
+        {% if datosHtml["keyDict"] == 12 %}
+            {% include "cerdo.html" %}
+        {% endif %}
 {% endblock %}

@@ -1,9 +1,8 @@
 body {
-  background: url("../images/fondo.jpg");
-  width: 1366px;
-  height: 768px;
+  background-image: url("../images/fondo.jpg");
+  background-repeat: repeat;
   display: grid;
-  grid-template-rows: 1fr 70% 1fr;
+  grid-template-rows: 20% 70% 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "header header header"
@@ -23,7 +22,8 @@ header {
 .titulo {
   grid-area: titulo;
   display: grid;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: bolder;
 }
 
 main {
@@ -33,6 +33,7 @@ main {
   grid-template-areas: "bicho logo compatibilidad";
   justify-items: center;
   align-items: center;
+
 }
 
 .logo {
@@ -46,15 +47,27 @@ html {
 }
 
 .logo__titulo {
-  font-size: 60px;
+
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+.logo__subtitulo {
+  font-size: 1rem;
+  font-weight: bolder;
 }
 
 .bicho {
   grid-area: bicho;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 .compatibilidad {
   grid-area: compatibilidad;
+   font-weight: bold;
+  text-align: center;
 }
 
 footer {
@@ -73,3 +86,4 @@ footer {
 form {
   grid-area: formulario;
 }
+

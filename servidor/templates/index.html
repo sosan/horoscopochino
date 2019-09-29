@@ -2,13 +2,14 @@
 
 {% block main %}
 <div class="bicho">
-    <img src="{{ url_for("static", filename="images/no.png") }} ">
+    <img src="{{ url_for("static", filename="images/no2.png") }} " width="300px"><br>
+    ¿...?
 </div>
 
     <div class="compatibilidad">
-    <p>COMPATIBILIDAD</p>
-    <img src="{{ url_for("static", filename="images/no.png") }} "><br>
-    <img src="{{ url_for("static", filename="images/no.png") }} ">
+        <img src="{{ url_for("static", filename="images/inter1.png") }}" width="250px"><br>
+        <img src="{{ url_for("static", filename="images/inter1.png") }}" width="250px">
+        <p>Compatibilidad</p>
 
     </div>
 
@@ -20,16 +21,16 @@
 {{ super() }}
 
     <form action="/rata" method="post">
-    <label for="">年纪 Año de nacimiento</label><br>
-    <input name="campoAnyo" type="text" size="10" placeholder="Escribe aqui"/>
-    <input type="submit" name="enviar"/>
+        <label for="">年纪 Año de nacimiento</label><br>
+        <input name="campoAnyo" type="text" size="8" placeholder="Escribe aqui"/>
+        <input name="enviar"    type="submit"  value="Enviar"/>
 
     </form>
 <!--
 <div class="formulario">
  <form action="/rata" method="post">
-     {{ datos["formulario"]["campoAnyo"](class="form-control", placeholder="Año Nacimiento")}}
-     {{ datos["formulario"]["enviar"](class="btn btn-default btn-register")}}
+     {{ datos["templateFormulario"]["campoAnyo"](class="form-control", placeholder="Escribe aqui")}}
+     {{ datos["templateFormulario"]["enviar"](class="btn btn-default btn-register")}}
 
 </form>
 
