@@ -169,10 +169,10 @@ def calcularHoroscopoChino(añoNacimiento):
 # errores
 @app.errorhandler(404)
 def error404(handler):
-    return "Error custom 404"
+    return render_template("custom404.html")  # "Error custom 404"
 
 
 # punot de entrada
 if __name__ == "__main__":
-    # app.secret_key = os.urandom(12)
+    app.secret_key = os.urandom(12)
     app.run("127.0.0.1", 5000, debug=True)
